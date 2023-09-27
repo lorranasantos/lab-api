@@ -1,7 +1,7 @@
-import User from '@app/entities/User';
-import UserType from '@app/entities/UserType';
-import UsersRepository from '@app/repositories/UsersRepository';
-import AppError from '@shared/errors/AppError';
+import { User } from '@entities/User';
+import UserType from '@entities/UserType';
+import UsersRepository from 'src/repositories/UsersRepository';
+import AppError from '@config/AppErrors';
 import { getCustomRepository, getRepository } from 'typeorm';
 
 interface IRequest {

@@ -1,5 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { v4 as uuid } from 'uuid';
+// import { v4 as uuid } from 'uuid';
 
 @Entity('userType')
 class UserType {

@@ -7,15 +7,7 @@ const userTypeController = new CreateUserTypeController();
 
 userTypeRouter.get('/', userTypeController.index);
 
-userTypeRouter.post(
-  '/',
-  celebrate({
-    [Segments.BODY]: {
-      type: Joi.string().required(),
-    },
-  }),
-  userTypeController.create,
-);
+userTypeRouter.post('/', userTypeController.create);
 
 userTypeRouter.put(
   '/:id',
