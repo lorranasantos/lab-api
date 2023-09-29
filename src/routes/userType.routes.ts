@@ -16,7 +16,7 @@ userTypeRouter.put(
       id: Joi.string().uuid().required(),
     },
     [Segments.BODY]: {
-      type: Joi.string().required(),
+      user_type: Joi.string().required(),
     },
   }),
   userTypeController.update,

@@ -5,8 +5,8 @@ import LaboratoryRepository from 'src/repositories/LaboratoryRepository';
 
 interface IRequest {
   name: string;
-  capacity: Number;
-  equipments_qtd: Number;
+  capacity: 'int';
+  equipments_qtd: 'int';
 }
 
 class CreateLaboratoryService {

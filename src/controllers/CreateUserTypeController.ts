@@ -3,7 +3,6 @@ import DeleteUserTypeService from '@services/UserType/DeleteUserTypeService';
 import ListUserTypeService from '@services/UserType/ListUserTypeService';
 import UpdateUserTypeService from '@services/UserType/UpdateUserTypeService';
 import { Request, Response } from 'express';
-import { any } from 'joi';
 
 export default class UserTypeController {
   public async index(request: Request, response: Response): Promise<Response> {
@@ -17,13 +16,9 @@ export default class UserTypeController {
   public async create(request: Request, response: Response): Promise<Response> {
     const { user_type } = request.body;
 
-    console.log('aqui');
-
     const createUserType = new CreateUserTypeService();
-    console.log(createUserType, 'oioioi');
 
     const userType = await createUserType.execute({ user_type });
-    console.log(userType, 'aaaaa');
 
     return response.json(userType);
   }

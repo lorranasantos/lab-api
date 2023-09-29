@@ -1,9 +1,9 @@
-import CreateLaboratoryService from '@services/Laboratory/CreateUserTypeService';
-import DeleteLaboratoryService from '@services/Laboratory/DeleteUserService';
-import ListLaboratoryService from '@services/Laboratory/ListUserService';
+import CreateLaboratoryService from '@services/Laboratory/CreateLaboratoryService';
+import DeleteLaboratoryService from '@services/Laboratory/DeleteLaboratoryService';
+import ListLaboratoryService from '@services/Laboratory/ListLaboratoryService';
 import { Request, Response } from 'express';
 
-export default class LaboratoryController {
+export default class CreateLaboratoryController {
   public async index(request: Request, response: Response): Promise<Response> {
     const listLaboratory = new ListLaboratoryService();
 
@@ -13,22 +13,26 @@ export default class LaboratoryController {
   }
 
   public async create(request: Request, response: Response): Promise<Response> {
-    const { user_type } = request.body;
+    const { name, capacity, equipments_qtd } = request.body;
 
     const createLaboratory = new CreateLaboratoryService();
 
-    const laboratory = await createLaboratory.execute({ user_type });
+    const laboratory = await createLaboratory.execute({
+      name,
+      capacity,
+      equipments_qtd,
+    });
 
     return response.json(laboratory);
   }
 
   // public async update(request: Request, response: Response): Promise<Response> {
-  //   const { user_type } = request.body;
+  //   const { name, capacity, equipments_qtd } = request.body;
   //   const { id } = request.params;
 
   //   const updateLaboratory = new UpdateLaboratoryService();
 
-  //   const laboratory = await updateLaboratory.execute({ id, user_type });
+  //   const laboratory = await updateLaboratory.execute({ id, name, capacity, equipments_qtd });
 
   //   return response.json(laboratory);
   // }
