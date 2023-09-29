@@ -1,13 +1,13 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 // import { v4 as uuid } from 'uuid';
 
-@Entity('userType')
+@Entity('userTypes')
 class UserType {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
-  type: string;
+  user_type: string;
 }
 
 export default UserType;

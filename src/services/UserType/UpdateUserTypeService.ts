@@ -4,11 +4,11 @@ import { getRepository } from 'typeorm';
 
 interface IRequest {
   id: string;
-  type: string;
+  user_type: string;
 }
 
 class UpdateUserTypeService {
-  public async execute({ id, type }: IRequest): Promise<UserType> {
+  public async execute({ id, user_type }: IRequest): Promise<UserType> {
     const userTypeRepository = getRepository(UserType);
 
     const userType = await userTypeRepository.findOne(id);
@@ -17,7 +17,7 @@ class UpdateUserTypeService {
       throw new AppError('User Type not found');
     }
 
-    userType.type = type;
+    userType.user_type = user_type;
 
     await userTypeRepository.save(userType);
 

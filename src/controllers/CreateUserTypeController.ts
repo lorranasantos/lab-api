@@ -15,26 +15,26 @@ export default class UserTypeController {
   }
 
   public async create(request: Request, response: Response): Promise<Response> {
-    const { type } = request.body;
+    const { user_type } = request.body;
 
     console.log('aqui');
 
     const createUserType = new CreateUserTypeService();
     console.log(createUserType, 'oioioi');
 
-    const userType = await createUserType.execute({ type });
+    const userType = await createUserType.execute({ user_type });
     console.log(userType, 'aaaaa');
 
     return response.json(userType);
   }
 
   public async update(request: Request, response: Response): Promise<Response> {
-    const { type } = request.body;
+    const { user_type } = request.body;
     const { id } = request.params;
 
     const updateUserType = new UpdateUserTypeService();
 
-    const userType = await updateUserType.execute({ id, type });
+    const userType = await updateUserType.execute({ id, user_type });
 
     return response.json(userType);
   }

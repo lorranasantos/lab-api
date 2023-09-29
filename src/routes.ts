@@ -5,6 +5,6 @@ import { Router } from 'express';
 const routes = Router();
 
 routes.use('/userType', userTypeRouter);
-//routes.use('/user', usersRouter);
+routes.use('/user', usersRouter);
 
 export default routes;
